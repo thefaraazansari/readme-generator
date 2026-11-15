@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- A 3×3 patch of the contribution graph, in the app's green scale. -->
+  <style>
+    .l1 { fill: #9be9a8 } .l2 { fill: #40c463 } .l3 { fill: #30a14e } .l4 { fill: #216e39 }
+    @media (prefers-color-scheme: dark) {
+      /* Brighter than the page's dark scale so every cell reads on a dark tab bar. */
+      .l1 { fill: #1b7f3b } .l2 { fill: #26a641 } .l3 { fill: #39d353 } .l4 { fill: #7ee787 }
+    }
+  </style>
+  <rect class="l2" x="1" y="1" width="9" height="9" rx="2" />
+  <rect class="l4" x="11.5" y="1" width="9" height="9" rx="2" />
+  <rect class="l1" x="22" y="1" width="9" height="9" rx="2" />
+  <rect class="l3" x="1" y="11.5" width="9" height="9" rx="2" />
+  <rect class="l1" x="11.5" y="11.5" width="9" height="9" rx="2" />
+  <rect class="l4" x="22" y="11.5" width="9" height="9" rx="2" />
+  <rect class="l4" x="1" y="22" width="9" height="9" rx="2" />
+  <rect class="l3" x="11.5" y="22" width="9" height="9" rx="2" />
+  <rect class="l2" x="22" y="22" width="9" height="9" rx="2" />
+</svg>
