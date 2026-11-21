@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+ * Design tokens. Light values live in @theme, so Tailwind generates utilities
+ * such as bg-paper, text-ink and border-line; [data-theme="dark"] on <html>
+ * swaps the same variables. The level-* scale follows GitHub's contribution
+ * graph in each theme.
+ */
+@theme {
+  --font-display: "Hubot Sans", system-ui, sans-serif;
+  --font-readme: "Space Mono", ui-monospace, Menlo, monospace;
+
+  --color-paper: #f5f7f6;
+  --color-sheet: #ffffff;
+  --color-ink: #0e1a13;
+  --color-body: #24332a;
+  --color-muted: #4a5a50;
+  --color-faint: #5f6e65;
+  --color-line: #dfe4e1;
+  --color-skeleton: #eef1ef;
+  --color-rule: #0e1a13;
+  --color-primary: #216e39;
+  --color-primary-hover: #1a5a2e;
+  --color-on-primary: #ffffff;
+  --color-link: #216e39;
+  --color-disabled: #b8c4bd;
+  --color-on-disabled: #3d4a42;
+  --color-error: #b42318;
+  --color-code: #eef1ef;
+  --color-pre: #0e1a13;
+  --color-on-pre: #e6efe9;
+  --color-marker: #30a14e;
+  --color-level-0: #e2e6e3;
+  --color-level-1: #9be9a8;
+  --color-level-2: #40c463;
+  --color-level-3: #30a14e;
+  --color-level-4: #216e39;
+  /* Text selection: the lightest graph green here (12:1 with ink), a mid green in dark mode. */
+  --color-selection: #9be9a8;
+
+  --shadow-sheet: 0 1px 0 #dfe4e1, 0 24px 48px -32px rgb(14 26 19 / 0.35);
+
+  --animate-cell-fill: cell-fill 1.4s ease-in-out infinite;
+
+  @keyframes cell-fill {
+    0%,
+    100% {
+      background: var(--color-level-0);
+    }
+    50% {
+      background: var(--cell-color);
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: #0f1512;
+  --color-sheet: #161e19;
+  --color-ink: #e3ebe6;
+  --color-body: #c9d5ce;
+  --color-muted: #a3b3a9;
+  --color-faint: #8c9c92;
+  --color-line: #2a352e;
+  --color-skeleton: #1f2a23;
+  --color-rule: #e3ebe6;
+  --color-primary: #2ea043;
+  --color-primary-hover: #3fb950;
+  --color-on-primary: #04110a;
+  --color-link: #56d364;
+  --color-disabled: #2a352e;
+  --color-on-disabled: #9aaaa0;
+  --color-error: #ff8182;
+  --color-code: #1f2a23;
+  --color-pre: #0b100d;
+  --color-on-pre: #d6e2da;
+  --color-marker: #39d353;
+  --color-level-0: #1f2a23;
+  --color-level-1: #0e4429;
+  --color-level-2: #006d32;
+  --color-level-3: #26a641;
+  --color-level-4: #39d353;
+  --color-selection: #006d32;
+  --shadow-sheet: 0 1px 0 #2a352e, 0 24px 48px -32px rgb(0 0 0 / 0.8);
+}
+
+@layer base {
+  body {
+    @apply bg-paper font-display text-ink;
+  }
+
+  /* Selected text follows the theme instead of the browser's blue. */
+  ::selection {
+    background: var(--color-selection);
+    color: var(--color-ink);
+  }
+
+  /* The big heading's lines overlap (line-height under 1), so an opaque highlight would hide the line above. */
+  h1::selection {
+    background: color-mix(in srgb, var(--color-selection) 55%, transparent);
+  }
+
+  /* Tailwind v4 resets buttons to the default cursor; restore the pointer. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
+/* Visible keyboard focus in the theme's link colour. */
+@utility focus-ring {
+  outline-offset: 2px;
+  &:focus-visible {
+    outline: 2px solid var(--color-link);
+  }
+}
