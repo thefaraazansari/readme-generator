@@ -2,9 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>README Generator</title>
+
+    <!-- Search -->
+    <title>README Generator: README and AI summary for any GitHub repo</title>
+    <meta
+      name="description"
+      content="Paste a GitHub repository URL to generate a README and an AI-written summary. See its languages, commit activity and recent commits. Free, no sign-up."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="application-name" content="README Generator" />
+    <link rel="canonical" href="https://thefaraazansari.github.io/readme-generator/" />
+
+    <!-- Link previews: WhatsApp, Teams, Slack, LinkedIn, Facebook and others read these.
+         The site address is written out in full on purpose: preview crawlers need absolute URLs. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="README Generator" />
+    <meta property="og:title" content="README Generator: README and AI summary for any GitHub repo" />
+    <meta
+      property="og:description"
+      content="Paste a GitHub repository URL to get a ready-to-use README and an AI-written summary of the repo."
+    />
+    <meta property="og:url" content="https://thefaraazansari.github.io/readme-generator/" />
+    <meta property="og:image" content="https://thefaraazansari.github.io/readme-generator/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="README Generator: a grid of green squares like a GitHub contribution graph" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- X / Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="README Generator: README and AI summary for any GitHub repo" />
+    <meta
+      name="twitter:description"
+      content="Paste a GitHub repository URL to get a ready-to-use README and an AI-written summary of the repo."
+    />
+    <meta name="twitter:image" content="https://thefaraazansari.github.io/readme-generator/og-image.png" />
+    <meta name="twitter:image:alt" content="README Generator: a grid of green squares like a GitHub contribution graph" />
+
+    <!-- Icons and install info -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)" />
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "README Generator",
+        "url": "https://thefaraazansari.github.io/readme-generator/",
+        "description": "Generate a README and an AI-written summary for any public GitHub repository.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": "en",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,6 +88,7 @@
     </script>
   </head>
   <body>
+    <noscript>README Generator needs JavaScript. Turn it on, then paste a GitHub repository URL to generate a README and an AI summary.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
