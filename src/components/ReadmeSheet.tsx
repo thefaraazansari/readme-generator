@@ -130,21 +130,21 @@ export function ReadmeSheet({
 
 
         {g.status === "success" && (
-          // One panel for both tabs. It is not a Tab stop: the README text is not interactive, and the page scrolls by itself.
-          <div id="readme-panel" role="tabpanel" aria-labelledby={`readme-tab-${g.viewMode}`}>
-            {g.viewMode === "preview" ? (
-              <div className={PREVIEW_CLASSES}>
-                <Markdown>{text}</Markdown>
-              </div>
-            ) : (
-              <textarea
-                aria-label="README markdown"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                spellCheck={false}
-                className="block min-h-128 w-full resize-y rounded-sm whitespace-pre bg-sheet px-6 py-10 font-mono text-ink text-sm leading-6 focus:outline-2 focus:outline-link focus:-outline-offset-2 sm:px-12"
-              />
-            )}
+          // One panel for both tabs. Preview and editor share one grid cell and the inactive one is hidden, so the
+          // editor is exactly as tall as the preview. Not a Tab stop: the README text is not interactive.
+          <div id="readme-panel" role="tabpanel" aria-labelledby={`readme-tab-${g.viewMode}`} className="grid">
+            <div className={`${PREVIEW_CLASSES} col-start-1 row-start-1 ${g.viewMode === "edit" ? "invisible" : ""}`}>
+              <Markdown>{text}</Markdown>
+            </div>
+            <textarea
+              aria-label="README markdown"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              spellCheck={false}
+              className={`col-start-1 row-start-1 block h-full w-full resize-none rounded-sm whitespace-pre bg-sheet px-6 py-10 font-mono text-ink text-sm leading-6 focus:outline-2 focus:outline-link focus:-outline-offset-2 sm:px-12 sm:py-14 ${
+                g.viewMode === "edit" ? "" : "invisible"
+              }`}
+            />
           </div>
         )}
       </div>
