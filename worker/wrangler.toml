@@ -4,4 +4,4 @@ compatibility_date = "2026-11-01"
 
 [vars]
 # Origins only (no path). Second one is the local dev server.
-ALLOWED_ORIGINS = "https://thefaraazansari.github.io,http://localhost:5173,http://localhost:5175"
+ALLOWED_ORIGINS = "https://thefaraazansari.github.io,http://localhost:5173,http://localhost:5174,http://localhost:5175"
